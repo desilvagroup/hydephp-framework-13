@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Hyde\Console\Commands;
 
 use Hyde\Framework\Actions\PostBuildTasks\GenerateRssFeed;
-use LaravelZero\Framework\Commands\Command;
+use Illuminate\Console\Command;
 
 /**
  * Run the build process for the RSS feed.

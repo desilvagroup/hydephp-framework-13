@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Hyde\Foundation\Internal;
 
 use Illuminate\Support\Env;
-use Hyde\Foundation\Application;
+use Illuminate\Contracts\Foundation\Application;
 
 use function filled;
 

@@ -7,7 +7,6 @@ namespace Hyde\Console\Commands;
 use Hyde\Hyde;
 use Illuminate\Foundation\Console\VendorPublishCommand as BaseCommand;
 use Illuminate\Support\ServiceProvider;
-use NunoMaduro\LaravelConsoleSummary\LaravelConsoleSummaryServiceProvider;
 
 use function ltrim;
 use function realpath;
@@ -27,9 +26,6 @@ class VendorPublishCommand extends BaseCommand
     {
         $originalPublishers = ServiceProvider::$publishes;
         $originalGroups = ServiceProvider::$publishGroups;
-
-        // This provider's publisher is not needed as it's covered by Laravel Zero
-        unset(ServiceProvider::$publishes[LaravelConsoleSummaryServiceProvider::class]);
 
         // Rename the config group to be more helpful
         if (isset(ServiceProvider::$publishGroups['config'])) {

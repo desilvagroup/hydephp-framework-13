@@ -7,13 +7,13 @@ return [
     | Default Command
     |--------------------------------------------------------------------------
     |
-    | Laravel Zero will always run the command specified below when no command name is
-    | provided. Consider update the default command for single command applications.
+    | The command that should run when no command name is provided by a
+    | standalone console kernel. Normal Laravel applications ignore this.
     | You cannot pass arguments to the default command because they are ignored.
     |
     */
 
-    'default' => NunoMaduro\LaravelConsoleSummary\SummaryCommand::class,
+    'default' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,6 @@ return [
     */
 
     'hidden' => [
-        NunoMaduro\LaravelConsoleSummary\SummaryCommand::class,
         Symfony\Component\Console\Command\DumpCompletionCommand::class,
         Symfony\Component\Console\Command\HelpCommand::class,
         \Illuminate\Cache\Console\ClearCommand::class,
@@ -68,9 +67,8 @@ return [
     | Removed Commands
     |--------------------------------------------------------------------------
     |
-    | Do you have a service provider that loads a list of commands that
-    | you don't need? No problem. Laravel Zero allows you to specify
-    | below a list of commands that you don't to see in your app.
+    | If you wire this package into a standalone console kernel, these
+    | commands can be removed from the visible command list.
     |
     */
 
@@ -79,7 +77,6 @@ return [
         Illuminate\Console\Scheduling\ScheduleListCommand::class,
         Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         Illuminate\Console\Scheduling\ScheduleRunCommand::class,
-        LaravelZero\Framework\Commands\StubPublishCommand::class,
     ],
 
 ];

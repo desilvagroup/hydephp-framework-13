@@ -7,8 +7,8 @@ namespace Hyde\Foundation\Internal;
 use Hyde\Enums\Feature;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Hyde\Foundation\Application;
 use Illuminate\Config\Repository;
+use Illuminate\Contracts\Foundation\Application;
 use Hyde\Framework\Features\Blogging\Models\PostAuthor;
 use Hyde\Framework\Exceptions\InvalidConfigurationException;
 

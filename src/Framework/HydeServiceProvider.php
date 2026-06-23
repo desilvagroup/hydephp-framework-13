@@ -9,9 +9,12 @@ use Hyde\Pages\BladePage;
 use Hyde\Pages\MarkdownPage;
 use Hyde\Pages\MarkdownPost;
 use Hyde\Foundation\HydeKernel;
+use Hyde\Foundation\Providers\ViewServiceProvider;
 use Hyde\Pages\DocumentationPage;
+use Hyde\Foundation\Providers\NavigationServiceProvider;
 use Hyde\Framework\Services\MarkdownService;
 use Hyde\Framework\Services\BuildTaskService;
+use Hyde\Foundation\Providers\ConfigurationServiceProvider;
 use Hyde\Framework\Concerns\RegistersFileLocations;
 use Illuminate\Support\ServiceProvider;
 use Hyde\Facades\Config;
@@ -28,9 +31,17 @@ class HydeServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->kernel = HydeKernel::getInstance();
+        $this->kernel->setBasePath($this->app->basePath());
+        HydeKernel::setInstance($this->kernel);
+
+        $this->app->instance(HydeKernel::class, $this->kernel);
 
         $this->app->singleton(BuildTaskService::class, BuildTaskService::class);
         $this->app->bind(MarkdownService::class, MarkdownService::class);
+
+        $this->app->register(ConfigurationServiceProvider::class);
+        $this->app->register(ViewServiceProvider::class);
+        $this->app->register(NavigationServiceProvider::class);
 
         $this->kernel->setSourceRoot(Config::getString('hyde.source_root', ''));
 

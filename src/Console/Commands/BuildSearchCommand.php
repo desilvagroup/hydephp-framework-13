@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Hyde\Console\Commands;
 
 use Hyde\Foundation\Facades\Pages;
+use Illuminate\Console\Command;
 use Hyde\Framework\Actions\StaticPageBuilder;
-use LaravelZero\Framework\Commands\Command;
 use Hyde\Framework\Features\Documentation\DocumentationSearchPage;
 use Hyde\Framework\Features\Documentation\DocumentationSearchIndex;
 

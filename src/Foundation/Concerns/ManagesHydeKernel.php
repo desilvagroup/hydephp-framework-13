@@ -18,6 +18,10 @@ trait ManagesHydeKernel
 {
     public static function getInstance(): HydeKernel
     {
+        if (! isset(static::$instance)) {
+            static::$instance = new static(static::defaultBasePath());
+        }
+
         return static::$instance;
     }
 
@@ -74,5 +78,10 @@ trait ManagesHydeKernel
     protected function normalizeSourcePath(string $outputDirectory): string
     {
         return $this->pathToRelative(rtrim($outputDirectory, '/\\'));
+    }
+
+    protected static function defaultBasePath(): string
+    {
+        return function_exists('base_path') ? base_path() : getcwd();
     }
 }

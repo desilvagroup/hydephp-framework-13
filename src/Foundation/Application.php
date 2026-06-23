@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Hyde\Foundation;
 
+use Illuminate\Foundation\Application as BaseApplication;
+
 /**
  * @property self $app
  */
-class Application extends \LaravelZero\Framework\Application
+class Application extends BaseApplication
 {
     protected $storagePath = 'app/storage';
 
@@ -16,9 +18,7 @@ class Application extends \LaravelZero\Framework\Application
      */
     protected function registerBaseBindings(): void
     {
-        // Laravel Zero disables auto-discovery, but we want to use it,
-        // so we'll call the grandparent's method instead of the parent's.
-        \Illuminate\Foundation\Application::registerBaseBindings();
+        parent::registerBaseBindings();
     }
 
     /**

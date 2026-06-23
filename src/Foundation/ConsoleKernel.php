@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Hyde\Foundation;
 
-use LaravelZero\Framework\Kernel;
+use Illuminate\Foundation\Console\Kernel;
 
 class ConsoleKernel extends Kernel
 {
@@ -23,14 +23,14 @@ class ConsoleKernel extends Kernel
         $this->app->singleton(Internal\YamlConfigurationRepository::class);
 
         return [
-            \LaravelZero\Framework\Bootstrap\CoreBindings::class,
-            \LaravelZero\Framework\Bootstrap\LoadEnvironmentVariables::class,
+            \Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
             \Hyde\Foundation\Internal\LoadYamlEnvironmentVariables::class,
             \Hyde\Foundation\Internal\LoadConfiguration::class,
             \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-            \LaravelZero\Framework\Bootstrap\RegisterFacades::class,
+            \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
             \Hyde\Foundation\Internal\LoadYamlConfiguration::class,
-            \LaravelZero\Framework\Bootstrap\RegisterProviders::class,
+            \Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
+            \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
             \Illuminate\Foundation\Bootstrap\BootProviders::class,
         ];
     }

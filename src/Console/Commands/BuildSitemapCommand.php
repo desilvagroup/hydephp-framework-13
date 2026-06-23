@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Hyde\Console\Commands;
 
 use Hyde\Framework\Actions\PostBuildTasks\GenerateSitemap;
-use LaravelZero\Framework\Commands\Command;
+use Illuminate\Console\Command;
 
 /**
  * Run the build process for the sitemap.

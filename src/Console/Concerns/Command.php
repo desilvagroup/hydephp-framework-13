@@ -7,7 +7,7 @@ namespace Hyde\Console\Concerns;
 use Exception;
 use Hyde\Hyde;
 use Hyde\Facades\Config;
-use LaravelZero\Framework\Commands\Command as BaseCommand;
+use Illuminate\Console\Command as BaseCommand;
 
 use function is_string;
 use function array_keys;
